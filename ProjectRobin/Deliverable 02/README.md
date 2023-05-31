@@ -1,48 +1,48 @@
 
 ```
-**⟨S⟩** -> ⟨ROBOT⟩ ⟨INSTRUCTION⟩ ⟨CONNECTOR⟩ ⟨EOS⟩ | ⟨ROBOT⟩ ⟨INSTRUCTION⟩ ⟨EOS⟩ | ⟨ROBOT⟩ ⟨INSTRUCTION⟩
+⟨S⟩ -> ⟨ROBOT⟩ ⟨INSTRUCTION⟩ ⟨CONNECTOR⟩ ⟨EOS⟩ | ⟨ROBOT⟩ ⟨INSTRUCTION⟩ ⟨EOS⟩ | ⟨ROBOT⟩ ⟨INSTRUCTION⟩
 
-**⟨ROBOT⟩** -> "robot" | "Robot" | "ROBOT" | "Robin"
+⟨ROBOT⟩ -> "robot" | "Robot" | "ROBOT" | "Robin"
 
-**⟨INSTRUCTION⟩** -> ⟨KIND⟩ ⟨ACTION⟩ | ⟨ACTION⟩
+⟨INSTRUCTION⟩ -> ⟨KIND⟩ ⟨ACTION⟩ | ⟨ACTION⟩
 
-**⟨KIND⟩** -> "please" | "kindly"
+⟨KIND⟩ -> "please" | "kindly"
 
-**⟨ACTION⟩** -> ⟨ROTATION⟩ | ⟨MOVEMENT⟩ ⟨DIR⟩ | ⟨MOVEMENT⟩
+⟨ACTION⟩ -> ⟨ROTATION⟩ | ⟨MOVEMENT⟩ ⟨DIR⟩ | ⟨MOVEMENT⟩
 
-**⟨ROTATION⟩** -> ⟨VROTATION⟩ ⟨DEGQ⟩ "degrees" ⟨CLOCK⟩ | ⟨VROTATION⟩ ⟨DEGQ⟩ "degrees" | ⟨VROTATION⟩ ⟨DIRECT⟩
+⟨ROTATION⟩ -> ⟨VROTATION⟩ ⟨DEGQ⟩ "degrees" ⟨CLOCK⟩ | ⟨VROTATION⟩ ⟨DEGQ⟩ "degrees" | ⟨VROTATION⟩ ⟨DIRECT⟩
 
-**⟨VROTATION⟩** -> "rotate" | "turn" | "spin" | "revolve"
+⟨VROTATION⟩ -> "rotate" | "turn" | "spin" | "revolve"
 
-**⟨DEGQ⟩** -> "90" | "180" | "270" | "360"
+⟨DEGQ⟩ -> "90" | "180" | "270" | "360"
 
-**⟨CLOCK⟩** -> "to the" ⟨ORI2⟩ | ⟨ORI3⟩
+⟨CLOCK⟩ -> "to the" ⟨ORI2⟩ | ⟨ORI3⟩
 
-**⟨ORI2⟩** -> "right" | "left"
+⟨ORI2⟩ -> "right" | "left"
 
-**⟨ORI3⟩** -> "clockwise" | "counterclockwise" | "right" | "left"
+⟨ORI3⟩ -> "clockwise" | "counterclockwise" | "right" | "left"
 
-**⟨MOVEMENT⟩** -> ⟨VMOVEMENT⟩ ⟨DIST⟩ ⟨UNIT⟩
+⟨MOVEMENT⟩ -> ⟨VMOVEMENT⟩ ⟨DIST⟩ ⟨UNIT⟩
 
-**⟨VMOVEMENT⟩** -> "move" | "go" | "travel" | "proceed"
+⟨VMOVEMENT⟩ -> "move" | "go" | "travel" | "proceed"
 
-**⟨DIST⟩** -> ⟨NUM⟩
+⟨DIST⟩ -> ⟨NUM⟩
 
-**⟨NUM⟩** -> "0" | "1" | "2" | "3" | "4" | "5"
+⟨NUM⟩ -> "0" | "1" | "2" | "3" | "4" | "5"
 
-**⟨UNIT⟩** -> "steps" | "units"
+⟨UNIT⟩ -> "steps" | "units"
 
-**⟨DIRECT⟩** -> ⟨ORI1⟩ | "to the" ⟨ORI1⟩
+⟨DIRECT⟩ -> ⟨ORI1⟩ | "to the" ⟨ORI1⟩
 
-**⟨ORI1⟩** -> "right" | "left" | "front" | "back"
+⟨ORI1⟩ -> "right" | "left" | "front" | "back"
 
-**⟨CNCTR⟩** -> ⟨COMMA⟩ | ⟨COMMA⟩ ⟨NEX⟩ ⟨INSTRUCTION⟩
+⟨CNCTR⟩ -> ⟨COMMA⟩ | ⟨COMMA⟩ ⟨NEX⟩ ⟨INSTRUCTION⟩
 
-**⟨NEX⟩** -> "next" | "then" | "after that" | "afterwards" | "after" | "subsequently" | "successively"
+⟨NEX⟩ -> "next" | "then" | "after that" | "afterwards" | "after" | "subsequently" | "successively"
 
-**⟨EOS⟩** -> ⟨COMMA⟩ ⟨FCNCTR⟩ ⟨INSTRUCTION⟩ | ⟨FCNCTR⟩ ⟨INSTRUCTION⟩ | ⟨INSTRUCTION⟩
+⟨EOS⟩ -> ⟨COMMA⟩ ⟨FCNCTR⟩ ⟨INSTRUCTION⟩ | ⟨FCNCTR⟩ ⟨INSTRUCTION⟩ | ⟨INSTRUCTION⟩
 
-**⟨COMMA⟩** -> ", "
+⟨COMMA⟩ -> ", "
 
-**⟨FCNCTR⟩** -> "finally" | "lastly" | "last" | "and then" | "and finally" | "and lastly" | "and last" | "and"
+⟨FCNCTR⟩ -> "finally" | "lastly" | "last" | "and then" | "and finally" | "and lastly" | "and last" | "and"
 ```
