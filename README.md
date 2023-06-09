@@ -9,11 +9,14 @@ Here are some examples of valid sentences:
 
 | Inputs | Instruction|
 | :--- | :--- |
-| Robot please move 2 steps  | Content Cell  |
-| Robot please move 2 steps | Content Cell  |
-| Robot kindly rotate 270 degrees to the left | Content Cell  |
-| Robot kindly move 3 steps | Content Cell  |
-| Robot please turn 90 degrees to the left then move 5 units to the front | Content Cell  |
+| Robot please move 2 steps  | MOV,2  |
+| Robin kindly rotate 90 degrees | TURN,90  |
+| Robot kindly rotate 270 degrees to the left | TURN,270  |
+| Robot kindly move 3 steps | MOV,3  |
+| Robot please turn 90 degrees to the left then move 5 units to the front then turn 180 degrees then move 2 steps to the left  | TURN,90
+MOV,5
+TURN,180
+MOV,2  |
 
 ### Context Free Grammar
 Lex
