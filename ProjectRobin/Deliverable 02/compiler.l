@@ -1,46 +1,72 @@
 %{
 #include "y.tab.h"
 #include <string.h>
+extern int yylval;
 %}
 
 %%
-"robot" | "Robot" | "ROBOT" | "Robin" { return ROBOT; }
 
-"please" | "kindly" { return KIND; }
+"robot"        { return ROBOT; }
+"Robot"        { return ROBOT; }
+"ROBOT"        { return ROBOT; }
+"Robin"        { return ROBOT; }
 
-"rotate" | "turn" | "spin" | "revolve" { return VROTATION; }
+"please"       { return KIND; }
+"kindly"       { return KIND; }
 
-"90" | "180" | "270" | "360" { return DEGQ; }
+"rotate"       { return ROTATION; }
+"turn"         { return ROTATION; }
+"spin"         { return ROTATION; }
 
-"to" { return TO; }
+[0-9]          { yylval = atoi(yytext); return NUM; }
+"90"           { yylval = atoi(yytext); return DEG; }
+"180"          { yylval = atoi(yytext); return DEG; }
+"270"          { yylval = atoi(yytext); return DEG; }
+"360"          { yylval = atoi(yytext); return DEG; }
 
-"the" { return THE; }
+"to"           { return TO; }
 
-"right" | "left" { return ORI2; }
+"the"          { return THE; }
 
-"clockwise" | "counterclockwise" | "right" | "left" { return ORI3; }
+"front"        { return FRONT_BACK; }
+"back"         { return FRONT_BACK; }
 
-"move" | "go" | "travel" | "proceed" { return VMOVEMENT; }
+"right"        { return RIGHT_LEFT; }
+"left"         { return RIGHT_LEFT; }
 
-[0-9]+ { yylval.num = atoi(yytext); return NUM; }
+"move"         { return MOVEMENT; }
+"go"           { return MOVEMENT; }
+"travel"       { return MOVEMENT; }
 
-", " { return COMMA; }
+"degrees"      { return DEGREES; }
 
-"finally" | "lastly" | "last" | "and then" | "and finally" | "and lastly" | "and last" | "and" { return FCNCTR; }
+"steps"        { return UNIT; }
+"units"        { return UNIT; }
 
-"next" | "then" | "after that" | "afterwards" | "after" | "subsequently" | "successively" { return NEX; }
+", "           { return COMMA; }
 
-"degrees" { return DEGREES; }
+"finally"      { return FCNCTR; }
+"lastly"       { return FCNCTR; }
+"last"         { return FCNCTR; }
+"and then"     { return FCNCTR; }
+"and finally"  { return FCNCTR; }
+"and lastly"   { return FCNCTR; }
+"and last"     { return FCNCTR; }
+"and"          { return FCNCTR; }
 
-"steps" | "units" { return UNIT; }
+"next"         { return NEX; }
+"then"         { return NEX; }
+"after that"   { return NEX; }
+"afterwards"   { return NEX; }
+"after"        { return NEX; }
+"subsequently" { return NEX; }
+"successively" { return NEX; }
 
-"front" | "back" { return ORI1; }
+\n             { return EOS; }
 
-\n { return EOS; }
+[ \t]+         ; // Ignorar espacios en blanco
 
-[ \t]+ ; // Ignore whitespace
-
-. { /* Handle unrecognized tokens or error */ }
+.              { printf("Caracter no reconocido: %c\n", yytext[0]); /* Manejar tokens no reconocidos o errores */ }
 
 %%
 
