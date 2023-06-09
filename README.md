@@ -18,7 +18,22 @@ Here are some examples of valid sentences:
 ### Context Free Grammar
 Lex
 ```
-
+⟨ROBOT⟩ -> robot | Robot | ROBOT | Robin
+⟨KIND⟩ -> please | kindly
+⟨ROTATION⟩ -> rotate | turn | spin
+⟨NUM⟩ -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
+⟨DEG⟩ -> 90 | 180 | 270 | 360
+⟨TO⟩ -> to
+⟨THE⟩ -> the
+⟨FRONT_BACK⟩ -> front | back
+⟨RIGHT_LEFT⟩ -> right | left
+⟨MOVEMENT⟩ -> move | go | travel
+⟨DEGREES⟩ -> degrees
+⟨UNIT⟩ -> steps | units
+⟨COMMA⟩ -> ,
+⟨FCNCTR⟩ -> finally | lastly | last | last | and then | and finally | and lastly | and last | and
+⟨NEX⟩ -> next | then | after that | afterwards | after | subsequently | successively 
+⟨EOS⟩ -> \n
 ```
 
 Yacc
