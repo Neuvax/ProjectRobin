@@ -4,49 +4,20 @@ This repository contains a context-free grammar structure for defining robot ins
 ### Robin´s Grammar
 
 ```
-⟨S⟩ -> ⟨ROBOT⟩ ⟨INSTRUCTION⟩ ⟨CONNECTOR⟩ ⟨EOS⟩ | ⟨ROBOT⟩ ⟨INSTRUCTION⟩ ⟨EOS⟩ | ⟨ROBOT⟩ ⟨INSTRUCTION⟩
-  
-⟨ROBOT⟩ -> "robot" | "Robot" | "ROBOT" | "Robin"
-  
-⟨INSTRUCTION⟩ -> ⟨KIND⟩ ⟨ACTION⟩ | ⟨ACTION⟩
-
-⟨KIND⟩ -> "please" | "kindly" 
-
-⟨ACTION⟩ -> ⟨ROTATION⟩ | ⟨MOVEMENT⟩ ⟨DIR⟩ | ⟨MOVEMENT⟩
-
-⟨ROTATION⟩ -> ⟨VROTATION⟩ ⟨DEGQ⟩ "degrees" ⟨CLOCK⟩ | ⟨VROTATION⟩ ⟨DEGQ⟩ "degrees" | ⟨VROTATION⟩ ⟨DIRECT⟩
-
-⟨VROTATION⟩ -> "rotate" | "turn" | "spin" | "revolve"
-
-⟨DEGQ⟩ -> "90" | "180" | "270" | "360"
-
-⟨CLOCK⟩ -> "to the" ⟨ORI2⟩ | ⟨ORI3⟩
- 
-⟨ORI2⟩ -> "right" | "left"
-
-⟨ORI3⟩ -> "clockwise" | "counterclockwise" | "right" | "left"
- 
-⟨MOVEMENT⟩ -> ⟨VMOVEMENT⟩ ⟨DIST⟩ ⟨UNIT⟩
-  
-⟨VMOVEMENT⟩ -> "move" | "go" | "travel" | "proceed"
-
-⟨DIST⟩ -> ⟨NUM⟩
- 
-⟨NUM⟩ -> "0" | "1" | "2" | "3" | "4" | "5"
-
-⟨UNIT⟩ -> "steps" | "units"
-
-⟨DIRECT⟩ -> ⟨ORI1⟩ | "to the" ⟨ORI1⟩
-
-⟨ORI1⟩ -> "right" | "left" | "front" | "back"
-  
-⟨CNCTR⟩ -> ⟨COMMA⟩ | ⟨COMMA⟩ ⟨NEX⟩ ⟨INSTRUCTION⟩
-
-⟨NEX⟩ -> "next" | "then" | "after that" | "afterwards" | "after" | "subsequently" | "successively"
-
-⟨EOS⟩ -> ⟨COMMA⟩ ⟨FCNCTR⟩ ⟨INSTRUCTION⟩ | ⟨FCNCTR⟩ ⟨INSTRUCTION⟩ | ⟨INSTRUCTION⟩
-  
-⟨COMMA⟩ -> ", "
-  
-⟨FCNCTR⟩ -> "finally" | "lastly" | "last" | "and then" | "and finally" | "and lastly" | "and last" | "and"
+⟨ROBOT⟩ -> robot | Robot | ROBOT | Robin
+⟨KIND⟩ -> please | kindly
+⟨ROTATION⟩ -> rotate | turn | spin
+⟨NUM⟩ -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
+⟨DEG⟩ -> 90 | 180 | 270 | 360
+⟨TO⟩ -> to
+⟨THE⟩ -> the
+⟨FRONT_BACK⟩ -> front | back
+⟨RIGHT_LEFT⟩ -> right | left
+⟨MOVEMENT⟩ -> move | go | travel
+⟨DEGREES⟩ -> degrees
+⟨UNIT⟩ -> steps | units
+⟨COMMA⟩ -> ,
+⟨FCNCTR⟩ -> finally | lastly | last | last | and then | and finally | and lastly | and last | and
+⟨NEX⟩ -> next | then | after that | afterwards | after | subsequently | successively 
+⟨EOS⟩ -> \n
 ```
