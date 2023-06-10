@@ -1,11 +1,11 @@
 # Project Robin
 
-### Description
+## Description
 Project Robin is a project based on the development of a compiler for a robot that will move in a 10x10 grid. The robot uses a special grammar that allows it to follow a series of instructions, these instructions include movements ('MOV') and turns ('TURN') with angles of 90°, 180°, 270°, and 360°. Additionally, error handling has been incorporated to return an illegal instruction message when the movement leads the robot outside the boundaries of the grid.
 
-### Language
-The language used by the robot must be polite and must follow the grammar provided.
-Here are some examples of valid sentences:
+## Language
+The language used by the robot must be polite and must follow the grammar provided.<br>
+**Here are some examples of valid sentences:**
 
 | Inputs | Instruction|
 | :--- | :--- |
@@ -13,13 +13,23 @@ Here are some examples of valid sentences:
 | Robin kindly rotate 90 degrees | TURN,90  |
 | Robot kindly rotate 270 degrees to the left | TURN,270  |
 | Robot kindly move 3 steps | MOV,3  |
-| Robot please turn 90 degrees to the left then move 5 units to the front then turn 180 degrees then move 2 steps to the left  | TURN,90
-MOV,5
-TURN,180
-MOV,2  |
+| Robot please turn 90 degrees to the left then move 5 units to the front<br> then turn 180 degrees then move 2 steps to the left  | TURN,90<br>MOV,5<br>TURN,180<br>MOV,2  |
 
-### Context Free Grammar
-Lex
+**Examples of invalid sentences:**<br>
+`Robot move 5 steps quickly`<br>
+`Robin rotate 90 degrees right now`<br>
+`ROBOT moves 3 units`<br>
+`robot turn 270 degrees`<br>
+
+## CPU Automaton
+This project involves a deterministic automaton that simulates the movement logic of a robot in a 2D matrix of 10 blocks. The automaton is represented using a directed graph using the Graphviz library, allowing for a clear visualization of the different states and transitions between them. Furthermore, a method is included to execute a sequence of instructions and determine if they have been successfully completed or if there are missing instructions. Our project provides a basic implementation of the automaton and can be customized and expanded upon to meet specific needs.<br>
+<p align="center">
+<img width="449" alt="Captura de pantalla 2023-05-31 a la(s) 14 28 59" src="https://github.com/Neuvax/ProjectRobin/assets/114161329/c8e0d4c8-3101-4f86-a8c8-29ee13d550fe">
+</p>
+
+## Context Free Grammar
+**Lex**
+
 ```
 ⟨ROBOT⟩ -> robot | Robot | ROBOT | Robin
 ⟨KIND⟩ -> please | kindly
@@ -39,19 +49,46 @@ Lex
 ⟨EOS⟩ -> \n
 ```
 
-Yacc
+**Yacc**
+```
+⟨program⟩ -> ⟨sentence_list⟩
+             | ⟨program⟩ ⟨EOS⟩ ⟨program⟩
+             
+⟨sentence_list⟩ -> ⟨ROBOT⟩ ⟨sentence⟩
+                   | ⟨sentence_list⟩ ⟨sentence⟩
+                   
+⟨sentence⟩ -> ⟨action_list⟩
+              | ⟨KIND⟩ ⟨sentence⟩
+             
+⟨action_list⟩ -> ⟨action⟩
+                 | ⟨action⟩ ⟨FCNCTR⟩ ⟨action_list⟩
+                 | ⟨action⟩ ⟨NEX⟩ ⟨action_list⟩
+                 
+⟨action⟩ -> ⟨rotation_action⟩
+            | ⟨movement_action⟩
+              
+⟨rotation_action⟩ -> ⟨ROTATION⟩ ⟨distance⟩ ⟨DEGREES⟩
+                     | ⟨ROTATION⟩ ⟨distance⟩ ⟨DEGREES⟩ ⟨TO⟩ ⟨THE⟩ ⟨RIGHT_LEFT⟩
+              
+⟨movement_action⟩ -> ⟨MOVEMENT⟩ ⟨distance⟩ ⟨UNIT⟩
+                     | ⟨MOVEMENT⟩ ⟨distance⟩ ⟨UNIT⟩ ⟨FRONT_BACK⟩
+                     | ⟨MOVEMENT⟩ ⟨distance⟩ ⟨UNIT⟩ ⟨RIGHT_LEFT⟩
+                     | ⟨MOVEMENT⟩ ⟨distance⟩ ⟨UNIT⟩ ⟨TO⟩ ⟨THE⟩ ⟨RIGHT_LEFT⟩
+                     | ⟨MOVEMENT⟩ ⟨distance⟩ ⟨UNIT⟩ ⟨TO⟩ ⟨THE⟩ ⟨FRONT_BACK⟩
+                 
+⟨distance⟩ -> ⟨NUM⟩
+              | ⟨DEG⟩
 ```
 
-```
+## Simulator 
 
-### Simulator 
 
-### Tools
+## Tools
 - Python
 - Lex
 - Yacc
 
-### Developers
-- [Jorge Esteban Madrigal Ramírez - A01641409](https://github.com/JEMadrigal)
-- [Jorge Germán Wolburg Trujillo - A01640826](https://github.com/Neuvax)
-- [Ingrid Michelle González Mendoza - A01641116](https://github.com/imichglez)
+## Developers
+- [Esteban Madrigal](https://github.com/JEMadrigal)
+- [Jorge Wolburg](https://github.com/Neuvax)
+- [Ingrid González](https://github.com/imichglez)
