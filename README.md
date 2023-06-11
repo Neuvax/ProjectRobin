@@ -116,7 +116,7 @@ For the test of our robot it is necessary to enter a valid sentence, as output t
 
 #### Input 
 ```
-Robin please move 5 steps then turn 90 degrees and finally move 9 steps.
+Robin please move 5 steps then turn 90 degrees and finally move 9 steps
 ```
 #### Output
 ```
