@@ -1,5 +1,19 @@
-# Yacc
+# Context Free Grammar
 
+This Yacc file contains the grammar specification of the generated language in the form of production rules. Used with Lex to perform parsing. The Yacc-generated parser validates the structure of the source code against these rules and builds a parse tree if the code is valid.
+
+Compiler constraints:
+
+- Compiler must be in LEX and YACC.
+- Compiler must read the sentence from a file.
+- Compiler must generate a file: `instructions.asm` with the list of instructions.<br>
+For example:
+```
+MOV,2
+TURN,270
+```
+
+**Yacc**
 ```
 ⟨program⟩ -> ⟨sentence_list⟩
              | ⟨program⟩ ⟨EOS⟩ ⟨program⟩
