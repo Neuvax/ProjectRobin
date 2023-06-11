@@ -3,33 +3,16 @@
 ## Description
 Project Robin is a project based on the development of a compiler for a robot that will move in a 10x10 grid. The robot uses a special grammar that allows it to follow a series of instructions, these instructions include movements ('MOV') and turns ('TURN') with angles of 90°, 180°, 270°, and 360°. Additionally, error handling has been incorporated to return an illegal instruction message when the movement leads the robot outside the boundaries of the grid.
 
-## Language
-The language used by the robot must be polite and must follow the grammar provided.<br>
-**Here are some examples of valid sentences:**
-
-| Inputs | Instruction|
-| :--- | :--- |
-| Robot please move 2 steps  | MOV,2  |
-| Robin kindly rotate 90 degrees | TURN,90  |
-| Robot kindly rotate 270 degrees to the left | TURN,270  |
-| Robot kindly move 3 steps | MOV,3  |
-| Robot please turn 90 degrees to the left then move 5 units to the front<br> then turn 180 degrees then move 2 steps to the left  | TURN,90<br>MOV,5<br>TURN,180<br>MOV,2  |
-
-**Examples of invalid sentences:**<br>
-`Robot move 5 steps quickly`<br>
-`Robin rotate 90 degrees right now`<br>
-`ROBOT moves 3 units`<br>
-`robot turn 270 degrees`<br>
-
 ## CPU Automaton
 This project involves a deterministic automaton that simulates the movement logic of a robot in a 2D matrix of 10 blocks. The automaton is represented using a directed graph using the Graphviz library, allowing for a clear visualization of the different states and transitions between them. Furthermore, a method is included to execute a sequence of instructions and determine if they have been successfully completed or if there are missing instructions. Our project provides a basic implementation of the automaton and can be customized and expanded upon to meet specific needs.<br>
 <p align="center">
 <img width="449" alt="Captura de pantalla 2023-05-31 a la(s) 14 28 59" src="https://github.com/Neuvax/ProjectRobin/assets/114161329/c8e0d4c8-3101-4f86-a8c8-29ee13d550fe">
 </p>
 
-## Context Free Grammar
-**Lex**
-
+## Lex Analyzer
+The lexical analyzer has the objective of scanning the source code of the program in search of lexical units or tokens, which are the basic components of the programming language. These tokens can include keywords, identifiers, constants, operators, symbols, and other elements that are part of the language.<br>This language must be created in order to make communication with the robot possible and the language must be polite. For a sentence to be valid, Robot or Robin must be entered, followed by a kind word and the desired instruction.
+For the creation of valid sentence variants, ChatGPT was used.<br>
+**Lex**<br>
 ```
 ⟨ROBOT⟩ -> robot | Robot | ROBOT | Robin
 ⟨KIND⟩ -> please | kindly
@@ -48,7 +31,24 @@ This project involves a deterministic automaton that simulates the movement logi
 ⟨NEX⟩ -> next | then | after that | afterwards | after | subsequently | successively 
 ⟨EOS⟩ -> \n
 ```
+### Language
+**Here are some examples of valid sentences:**
 
+| Inputs | Instruction|
+| :--- | :--- |
+| Robot please move 2 steps  | MOV,2  |
+| Robin kindly rotate 90 degrees | TURN,90  |
+| Robot kindly rotate 270 degrees to the left | TURN,270  |
+| Robot kindly move 3 steps | MOV,3  |
+| Robot please turn 90 degrees to the left then move 5 units to the front<br> then turn 180 degrees then move 2 steps to the left  | TURN,90<br>MOV,5<br>TURN,180<br>MOV,2  |
+
+**Examples of invalid sentences:**<br>
+`Robot move 5 steps quickly`<br>
+`Robin rotate 90 degrees right now`<br>
+`ROBOT moves 3 units`<br>
+`robot turn 270 degrees`<br>
+
+## Context Free Grammar
 **Yacc**
 ```
 ⟨program⟩ -> ⟨sentence_list⟩
