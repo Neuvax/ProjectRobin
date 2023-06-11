@@ -12,6 +12,24 @@ For example:
 MOV,2
 TURN,270
 ```
+Tokens:
+
+- ROBOT 
+- KIND 
+- ROTATION 
+- NUM
+- DEG
+- TO 
+- THE 
+- FRONT_BACK 
+- RIGHT_LEFT 
+- MOVEMENT 
+- DEGREES 
+- UNIT 
+- COMMA 
+- FCNCTR 
+- NEX 
+- EOS
 
 **Yacc**
 ```
