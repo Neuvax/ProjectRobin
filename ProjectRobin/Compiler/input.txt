@@ -1,0 +1,5 @@
+Robot please move 2 steps
+Robin kindly rotate 90 degrees
+Robot kindly rotate 270 degrees to the left
+Robot kindly move 3 steps
+Robot please turn 90 degrees to the left then move 5 units to the front then turn 180 degrees then move 2 steps to the left
