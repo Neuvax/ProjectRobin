@@ -100,9 +100,9 @@ def main():
     input_file = "../Compiler/input.txt"
 
     compile_and_run(yacc_file, lex_file, input_file)
-    read_asm_file('output.asm')
+    read_asm_file('instructions.asm')
     plot()
-    execute_actions_from_file('output.asm')
+    execute_actions_from_file('instructions.asm')
 
 
 if __name__ == "__main__":

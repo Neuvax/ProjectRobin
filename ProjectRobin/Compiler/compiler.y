@@ -80,9 +80,9 @@ int main(int argc, char **argv) {
         }
     }
 
-    asmFile = fopen("output.asm", "w");
+    asmFile = fopen("instructions.asm", "w");
     if (asmFile == NULL) {
-        perror("output.asm");
+        perror("instructions.asm");
         exit(1);
     }
 
