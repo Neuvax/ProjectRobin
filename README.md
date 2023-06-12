@@ -182,6 +182,6 @@ It is important to mention that we have to install 3 things as prerequesite for 
 * A Python compiler; we use Python 3
 
 ## Developers
-- [Esteban Madrigal](https://github.com/JEMadrigal)
-- [Jorge Wolburg](https://github.com/Neuvax)
-- [Ingrid González](https://github.com/imichglez)
+- [Esteban Madrigal - A01641409](https://github.com/JEMadrigal)
+- [Jorge Wolburg - A01640826](https://github.com/Neuvax)
+- [Ingrid González - A01641116](https://github.com/imichglez)
