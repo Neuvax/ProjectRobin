@@ -177,9 +177,9 @@ On the other hand, in the **Test** folder there is a file called `test.py`, whic
 
 It is important to mention that we have to install 3 things as prerequesite for the program to work:
 
-A lex compiler; we use flex 2.6.4
-A Yacc compiler; we use bison 2.3
-A Python compiler; we use Python 3
+* A lex compiler; we use flex 2.6.4
+* A Yacc compiler; we use bison 2.3
+* A Python compiler; we use Python 3
 
 ## Developers
 - [Esteban Madrigal](https://github.com/JEMadrigal)
