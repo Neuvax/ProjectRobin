@@ -49,36 +49,6 @@ Tokens:
 ⟨NEX⟩ -> next | then | after that | afterwards | after | subsequently | successively 
 ⟨EOS⟩ -> \n
 ```
-### Language
-**Here are some examples of valid sentences:**
-
-| Inputs | Instruction|
-| :--- | :--- |
-| Robot please move 2 steps  | MOV,2  |
-| Robin kindly rotate 90 degrees | TURN,90  |
-| Robot kindly rotate 270 degrees to the left | TURN,270  |
-| Robot kindly move 3 steps | MOV,3  |
-| Robot please turn 90 degrees to the left then move 5 units to the front<br> then turn 180 degrees then move 2 steps to the left  | TURN,90<br>MOV,5<br>TURN,180<br>MOV,2  |
-
-**Examples of invalid sentences:**<br>
-`Robot move 5 steps quickly`<br>
-`Robin rotate 90 degrees right now`<br>
-`ROBOT moves 3 units`<br>
-`robot turn 270 degrees`<br>
-
-## Context Free Grammar
-The Yacc file contains the grammar specification of the generated language in the form of production rules. Used with Lex to perform parsing. The Yacc-generated parser validates the structure of the source code against these rules and builds a parse tree if the code is valid.
-
-Compiler constraints:
-
-- Compiler must be in LEX and YACC.
-- Compiler must read the sentence from a file.
-- Compiler must generate a file: `instructions.asm` with the list of instructions.<br>
-For example:
-```
-MOV,2
-TURN,270
-```
 **Yacc**
 ```
 ⟨program⟩ -> ⟨sentence_list⟩
@@ -109,7 +79,36 @@ TURN,270
 ⟨distance⟩ -> ⟨NUM⟩
            |  ⟨DEG⟩
 ```
+### Language
+**Here are some examples of valid sentences:**
 
+| Inputs | Instruction|
+| :--- | :--- |
+| Robot please move 2 steps  | MOV,2  |
+| Robin kindly rotate 90 degrees | TURN,90  |
+| Robot kindly rotate 270 degrees to the left | TURN,270  |
+| Robot kindly move 3 steps | MOV,3  |
+| Robot please turn 90 degrees to the left then move 5 units to the front<br> then turn 180 degrees then move 2 steps to the left  | TURN,90<br>MOV,5<br>TURN,180<br>MOV,2  |
+
+**Examples of invalid sentences:**<br>
+`Robot move 5 steps quickly`<br>
+`Robin rotate 90 degrees right now`<br>
+`ROBOT moves 3 units`<br>
+`robot turn 270 degrees`<br>
+
+## Context Free Grammar
+The Yacc file contains the grammar specification of the generated language in the form of production rules. Used with Lex to perform parsing. The Yacc-generated parser validates the structure of the source code against these rules and builds a parse tree if the code is valid.
+
+Compiler constraints:
+
+- Compiler must be in LEX and YACC.
+- Compiler must read the sentence from a file.
+- Compiler must generate a file: `instructions.asm` with the list of instructions.<br>
+For example:
+```
+MOV,2
+TURN,270
+```
 ## Simulator 
 For the test of our robot it is necessary to enter a valid sentence, as output the instructions will be generated. In this way the cpu will print the addresses that were generated.
 
