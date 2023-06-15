@@ -9,6 +9,20 @@ This project involves a deterministic automaton that simulates the movement logi
 <img width="449" alt="Captura de pantalla 2023-05-31 a la(s) 14 28 59" src="https://github.com/Neuvax/ProjectRobin/assets/114161329/c8e0d4c8-3101-4f86-a8c8-29ee13d550fe">
 </p>
 
+## Context Free Grammar
+The Yacc file contains the grammar specification of the generated language in the form of production rules. Used with Lex to perform parsing. The Yacc-generated parser validates the structure of the source code against these rules and builds a parse tree if the code is valid.
+
+Compiler constraints:
+
+- Compiler must be in LEX and YACC.
+- Compiler must read the sentence from a file.
+- Compiler must generate a file: `instructions.asm` with the list of instructions.<br>
+For example:
+```
+MOV,2
+TURN,270
+```
+
 ## Lex Analyzer
 The lexical analyzer has the objective of scanning the source code of the program in search of lexical units or tokens, which are the basic components of the programming language. These tokens can include keywords, identifiers, constants, operators, symbols, and other elements that are part of the language.<br>This language must be created in order to make communication with the robot possible and the language must be polite. For a sentence to be valid, Robot or Robin must be entered, followed by a kind word and the desired instruction.
 For the creation of valid sentence variants, ChatGPT was used.<br>
@@ -96,19 +110,6 @@ Tokens:
 `ROBOT moves 3 units`<br>
 `robot turn 270 degrees`<br>
 
-## Context Free Grammar
-The Yacc file contains the grammar specification of the generated language in the form of production rules. Used with Lex to perform parsing. The Yacc-generated parser validates the structure of the source code against these rules and builds a parse tree if the code is valid.
-
-Compiler constraints:
-
-- Compiler must be in LEX and YACC.
-- Compiler must read the sentence from a file.
-- Compiler must generate a file: `instructions.asm` with the list of instructions.<br>
-For example:
-```
-MOV,2
-TURN,270
-```
 ## Simulator 
 For the test of our robot it is necessary to enter a valid sentence, as output the instructions will be generated. In this way the cpu will print the addresses that were generated.
 
