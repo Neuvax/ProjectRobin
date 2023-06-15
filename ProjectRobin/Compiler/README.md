@@ -1,3 +1,18 @@
+# Context Free Grammar
+
+This Yacc file contains the grammar specification of the generated language in the form of production rules. Used with Lex to perform parsing. The Yacc-generated parser validates the structure of the source code against these rules and builds a parse tree if the code is valid.
+
+Compiler constraints:
+
+- Compiler must be in LEX and YACC.
+- Compiler must read the sentence from a file.
+- Compiler must generate a file: `instructions.asm` with the list of instructions.<br>
+For example:
+```
+MOV,2
+TURN,270
+```
+
 # Lex Analyzer
 
 The lexical analyzer has the objective of scanning the source code of the program in search of lexical units or tokens, which are the basic components of the programming language. These tokens can include keywords, identifiers, constants, operators, symbols, and other elements that are part of the language.<br>This language must be created in order to make communication with the robot possible and the language must be polite. For a sentence to be valid, Robot or Robin must be entered, followed by a kind word and the desired instruction.
@@ -56,20 +71,6 @@ Tokens:
 `ROBOT moves 3 units`<br>
 `robot turn 270 degrees`<br>
 
-# Context Free Grammar
-
-This Yacc file contains the grammar specification of the generated language in the form of production rules. Used with Lex to perform parsing. The Yacc-generated parser validates the structure of the source code against these rules and builds a parse tree if the code is valid.
-
-Compiler constraints:
-
-- Compiler must be in LEX and YACC.
-- Compiler must read the sentence from a file.
-- Compiler must generate a file: `instructions.asm` with the list of instructions.<br>
-For example:
-```
-MOV,2
-TURN,270
-```
 **Yacc**
 ```
 ⟨program⟩ -> ⟨sentence_list⟩
