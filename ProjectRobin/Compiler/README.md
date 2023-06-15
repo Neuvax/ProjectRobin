@@ -4,6 +4,25 @@ The lexical analyzer has the objective of scanning the source code of the progra
 For the creation of valid sentence variants, ChatGPT was used.
 
 ```
+Tokens:
+
+- ROBOT 
+- KIND 
+- ROTATION 
+- NUM
+- DEG
+- TO 
+- THE 
+- FRONT_BACK 
+- RIGHT_LEFT 
+- MOVEMENT 
+- DEGREES 
+- UNIT 
+- COMMA 
+- FCNCTR 
+- NEX 
+- EOS
+
 ⟨ROBOT⟩ -> robot | Robot | ROBOT | Robin
 ⟨KIND⟩ -> please | kindly
 ⟨ROTATION⟩ -> rotate | turn | spin
@@ -16,7 +35,6 @@ For the creation of valid sentence variants, ChatGPT was used.
 ⟨MOVEMENT⟩ -> move | go | travel
 ⟨DEGREES⟩ -> degrees
 ⟨UNIT⟩ -> steps | units
-⟨COMMA⟩ -> ,
 ⟨FCNCTR⟩ -> finally | lastly | last | last | and then | and finally | and lastly | and last | and
 ⟨NEX⟩ -> next | then | after that | afterwards | after | subsequently | successively 
 ⟨EOS⟩ -> \n
@@ -52,25 +70,6 @@ For example:
 MOV,2
 TURN,270
 ```
-Tokens:
-
-- ROBOT 
-- KIND 
-- ROTATION 
-- NUM
-- DEG
-- TO 
-- THE 
-- FRONT_BACK 
-- RIGHT_LEFT 
-- MOVEMENT 
-- DEGREES 
-- UNIT 
-- COMMA 
-- FCNCTR 
-- NEX 
-- EOS
-
 **Yacc**
 ```
 ⟨program⟩ -> ⟨sentence_list⟩
