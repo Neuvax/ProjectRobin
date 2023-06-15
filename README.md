@@ -14,10 +14,29 @@ The lexical analyzer has the objective of scanning the source code of the progra
 For the creation of valid sentence variants, ChatGPT was used.<br>
 **Lex**<br>
 ```
+Tokens:
+
+- ROBOT 
+- KIND 
+- ROTATION 
+- NUM
+- DEG
+- TO 
+- THE 
+- FRONT_BACK 
+- RIGHT_LEFT 
+- MOVEMENT 
+- DEGREES 
+- UNIT 
+- COMMA 
+- FCNCTR 
+- NEX 
+- EOS<br>
+
 ⟨ROBOT⟩ -> robot | Robot | ROBOT | Robin
 ⟨KIND⟩ -> please | kindly
 ⟨ROTATION⟩ -> rotate | turn | spin
-⟨NUM⟩ -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
+⟨NUM⟩ -> [0-9]
 ⟨DEG⟩ -> 90 | 180 | 270 | 360
 ⟨TO⟩ -> to
 ⟨THE⟩ -> the
@@ -26,7 +45,6 @@ For the creation of valid sentence variants, ChatGPT was used.<br>
 ⟨MOVEMENT⟩ -> move | go | travel
 ⟨DEGREES⟩ -> degrees
 ⟨UNIT⟩ -> steps | units
-⟨COMMA⟩ -> ,
 ⟨FCNCTR⟩ -> finally | lastly | last | last | and then | and finally | and lastly | and last | and
 ⟨NEX⟩ -> next | then | after that | afterwards | after | subsequently | successively 
 ⟨EOS⟩ -> \n
@@ -61,54 +79,35 @@ For example:
 MOV,2
 TURN,270
 ```
-Tokens:
-
-- ROBOT 
-- KIND 
-- ROTATION 
-- NUM
-- DEG
-- TO 
-- THE 
-- FRONT_BACK 
-- RIGHT_LEFT 
-- MOVEMENT 
-- DEGREES 
-- UNIT 
-- COMMA 
-- FCNCTR 
-- NEX 
-- EOS<br>
-
 **Yacc**
 ```
 ⟨program⟩ -> ⟨sentence_list⟩
-             | ⟨program⟩ ⟨EOS⟩ ⟨program⟩
+          |  ⟨sentence_list⟩ ⟨EOS⟩ ⟨program⟩
              
 ⟨sentence_list⟩ -> ⟨ROBOT⟩ ⟨sentence⟩
-                   | ⟨sentence_list⟩ ⟨sentence⟩
+                |  ⟨sentence_list⟩ ⟨sentence⟩
                    
-⟨sentence⟩ -> ⟨action_list⟩
-              | ⟨KIND⟩ ⟨sentence⟩
+⟨sentence⟩ -> ⟨KIND⟩ ⟨action_list⟩
+             
              
 ⟨action_list⟩ -> ⟨action⟩
-                 | ⟨action⟩ ⟨FCNCTR⟩ ⟨action_list⟩
-                 | ⟨action⟩ ⟨NEX⟩ ⟨action_list⟩
+              |  ⟨action⟩ ⟨FCNCTR⟩ ⟨action_list⟩
+              |  ⟨action⟩ ⟨NEX⟩ ⟨action_list⟩
                  
 ⟨action⟩ -> ⟨rotation_action⟩
-            | ⟨movement_action⟩
+         |  ⟨movement_action⟩
               
 ⟨rotation_action⟩ -> ⟨ROTATION⟩ ⟨distance⟩ ⟨DEGREES⟩
-                     | ⟨ROTATION⟩ ⟨distance⟩ ⟨DEGREES⟩ ⟨TO⟩ ⟨THE⟩ ⟨RIGHT_LEFT⟩
+                  |  ⟨ROTATION⟩ ⟨distance⟩ ⟨DEGREES⟩ ⟨TO⟩ ⟨THE⟩ ⟨RIGHT_LEFT⟩
               
 ⟨movement_action⟩ -> ⟨MOVEMENT⟩ ⟨distance⟩ ⟨UNIT⟩
-                     | ⟨MOVEMENT⟩ ⟨distance⟩ ⟨UNIT⟩ ⟨FRONT_BACK⟩
-                     | ⟨MOVEMENT⟩ ⟨distance⟩ ⟨UNIT⟩ ⟨RIGHT_LEFT⟩
-                     | ⟨MOVEMENT⟩ ⟨distance⟩ ⟨UNIT⟩ ⟨TO⟩ ⟨THE⟩ ⟨RIGHT_LEFT⟩
-                     | ⟨MOVEMENT⟩ ⟨distance⟩ ⟨UNIT⟩ ⟨TO⟩ ⟨THE⟩ ⟨FRONT_BACK⟩
+                  |  ⟨MOVEMENT⟩ ⟨distance⟩ ⟨UNIT⟩ ⟨FRONT_BACK⟩
+                  |  ⟨MOVEMENT⟩ ⟨distance⟩ ⟨UNIT⟩ ⟨RIGHT_LEFT⟩
+                  |  ⟨MOVEMENT⟩ ⟨distance⟩ ⟨UNIT⟩ ⟨TO⟩ ⟨THE⟩ ⟨RIGHT_LEFT⟩
+                  |  ⟨MOVEMENT⟩ ⟨distance⟩ ⟨UNIT⟩ ⟨TO⟩ ⟨THE⟩ ⟨FRONT_BACK⟩
                  
 ⟨distance⟩ -> ⟨NUM⟩
-              | ⟨DEG⟩
+           |  ⟨DEG⟩
 ```
 
 ## Simulator 
