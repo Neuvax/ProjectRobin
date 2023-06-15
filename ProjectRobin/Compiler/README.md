@@ -7,7 +7,7 @@ For the creation of valid sentence variants, ChatGPT was used.
 ⟨ROBOT⟩ -> robot | Robot | ROBOT | Robin
 ⟨KIND⟩ -> please | kindly
 ⟨ROTATION⟩ -> rotate | turn | spin
-⟨NUM⟩ -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
+⟨NUM⟩ -> [0-9]
 ⟨DEG⟩ -> 90 | 180 | 270 | 360
 ⟨TO⟩ -> to
 ⟨THE⟩ -> the
@@ -74,7 +74,7 @@ Tokens:
 **Yacc**
 ```
 ⟨program⟩ -> ⟨sentence_list⟩
-             | ⟨program⟩ ⟨EOS⟩ ⟨program⟩
+             | ⟨sentence_list⟩ ⟨EOS⟩ ⟨program⟩
              
 ⟨sentence_list⟩ -> ⟨ROBOT⟩ ⟨sentence⟩
                    | ⟨sentence_list⟩ ⟨sentence⟩
